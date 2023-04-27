@@ -1,4 +1,5 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react";
+import GameGrid from "../components/GameGrid";
 import GenreList from "../components/GenreList";
 
 const Homepage = () => {
@@ -15,7 +16,9 @@ const Homepage = () => {
         </GridItem>
       </Show>
 
-      <GridItem area="main">Main</GridItem>
+      <GridItem area="main">
+        <GameGrid />
+      </GridItem>
     </Grid>
   );
 };

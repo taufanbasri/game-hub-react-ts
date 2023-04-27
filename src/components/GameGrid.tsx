@@ -4,14 +4,17 @@ import GameCard from "./GameCard";
 import GameCardContainer from "./GameCardContainer";
 import InfiniteScroll from "react-infinite-scroll-component";
 import React from "react";
+import GameCardSkeleton from "./GameCardSkeleton";
 
 const GameGrid = () => {
-  const { data, error, hasNextPage, fetchNextPage } = useGames();
+  const { data, error, hasNextPage, fetchNextPage, isLoading } = useGames();
 
   if (error) return <Text>{error.message}</Text>;
 
   const fetchedGamesCount =
     data?.pages.reduce((total, page) => total + page.results.length, 0) || 0;
+
+  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   return (
     <InfiniteScroll
@@ -25,6 +28,13 @@ const GameGrid = () => {
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
         spacing={6}
       >
+        {isLoading &&
+          skeletons.map((skeleton) => (
+            <GameCardContainer key={skeleton}>
+              <GameCardSkeleton />
+            </GameCardContainer>
+          ))}
+
         {data?.pages.map((page, index) => (
           <React.Fragment key={index}>
             {page.results.map((game) => (

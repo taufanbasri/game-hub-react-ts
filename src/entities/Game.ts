@@ -1,4 +1,5 @@
 import Genre from "./Genre"
+import Platform from "./Platform"
 
 export default interface Game {
   id: number
@@ -11,4 +12,5 @@ export default interface Game {
   rating: number
 
   genres: Genre[]
+  parent_platforms: { platform: Platform }[]
 }

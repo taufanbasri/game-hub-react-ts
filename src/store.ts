@@ -4,6 +4,7 @@ interface GameQuery {
   searchText?: string
   genreId?: number
   platformId?: number
+  sortOrder?: string
 }
 
 interface GameQueryStore {
@@ -11,6 +12,7 @@ interface GameQueryStore {
   setSearchText: (searchText: string) => void
   setGenreId: (genreId: number) => void
   setPlatformId: (platformId: number) => void
+  setSortOrder: (sortOrder: string) => void
 }
 
 const useGameQueryStore = create<GameQueryStore>(set => ({
@@ -23,6 +25,9 @@ const useGameQueryStore = create<GameQueryStore>(set => ({
   })),
   setPlatformId: (platformId) => set(store => ({
     gameQuery: { ...store.gameQuery, platformId }
+  })),
+  setSortOrder: (sortOrder) => set(store => ({
+    gameQuery: { ...store.gameQuery, sortOrder }
   })),
 }))
 

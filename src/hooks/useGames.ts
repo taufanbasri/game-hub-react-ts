@@ -17,6 +17,7 @@ const useGames = () => {
         search: gameQuery.searchText,
         genres: gameQuery.genreId,
         parent_platforms: gameQuery.platformId,
+        ordering: gameQuery.sortOrder,
       }
     }),
     getNextPageParam: (_lastPage, allPages) => {

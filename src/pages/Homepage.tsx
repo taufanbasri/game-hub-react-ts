@@ -3,6 +3,7 @@ import GameGrid from "../components/GameGrid";
 import GenreList from "../components/GenreList";
 import PlatformSelector from "../components/PlatformSelector";
 import SortSelector from "../components/SortSelector";
+import GameHeading from "../components/GameHeading";
 
 const Homepage = () => {
   return (
@@ -23,6 +24,7 @@ const Homepage = () => {
       </Show>
 
       <GridItem area="main">
+        <GameHeading />
         <Flex gap={2} mb={2}>
           <PlatformSelector />
           <SortSelector />

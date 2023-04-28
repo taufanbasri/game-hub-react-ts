@@ -13,10 +13,10 @@ const Emoji = ({ rating }: Props) => {
   const emojiMap: { [key: number]: ImageProps } = {
     3: { src: meh, alt: "meh", boxSize: "25px" },
     4: { src: thumbsUp, alt: "recommended", boxSize: "25px" },
-    5: { src: bullsEye, alt: "meh", boxSize: "25px" },
+    5: { src: bullsEye, alt: "meh", boxSize: "35px" },
   };
 
-  return <Image {...emojiMap[rating]} />;
+  return <Image {...emojiMap[rating]} mt={1} />;
 };
 
 export default Emoji;

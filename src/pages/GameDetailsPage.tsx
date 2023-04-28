@@ -3,6 +3,8 @@ import useDetailsGame from "../hooks/useDetailsGame";
 import { GridItem, Heading, SimpleGrid, Spinner } from "@chakra-ui/react";
 import ExapandableText from "../components/ExapandableText";
 import GameAttributes from "../components/GameAttributes";
+import GameTrailer from "../components/GameTrailer";
+import GameScreenshots from "../components/GameScreenshots";
 
 const GameDetailsPage = () => {
   const { slug } = useParams();
@@ -17,6 +19,11 @@ const GameDetailsPage = () => {
         <Heading>{data.name}</Heading>
         <ExapandableText>{data.description_raw}</ExapandableText>
         <GameAttributes game={data} />
+      </GridItem>
+
+      <GridItem>
+        <GameTrailer gameId={data.id} />
+        <GameScreenshots gameId={data.id} />
       </GridItem>
     </SimpleGrid>
   );
